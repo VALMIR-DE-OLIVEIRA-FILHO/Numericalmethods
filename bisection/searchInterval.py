@@ -1,7 +1,7 @@
 import math
 
 def f(x):
-    return 2**x -3*x -40 
+    return x**3 +x -1000 
 
 def encontrar_intervalo(inicio=-100, fim=100):
     for a in range(inicio, fim):

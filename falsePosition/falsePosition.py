@@ -1,0 +1,42 @@
+import math
+import os
+
+# Função
+def f(x):
+    return 2**x -3*x - 40
+
+def false_position():
+    a = -14
+    b = -13
+    eps1 = 3e-6
+    eps2 = 1e-6
+
+    caminho = os.path.join(os.path.dirname(__file__), "resultado.txt")
+
+    with open(caminho, "w", encoding="utf-8") as file:
+
+        for k in range(1, 101):
+            x = (a * f(b) - b * f(a)) / (f(b) - f(a))
+
+            fx = f(x)
+
+            # 🔥 imprime no formato que você quer
+            linha = f"Passo k = {k:2d}, raiz x = {x:14.10f}"
+            print(linha)
+            file.write(linha + "\n")
+
+            # critério de parada
+            if (b - a) < eps1 or abs(fx) < eps2:
+                break
+
+            if f(a) * fx > 0:
+                a = x
+            else:
+                b = x
+
+        resultado = f"\nA raiz vale {x:14.10f} com {k} passos."
+        print(resultado)
+        file.write(resultado)
+
+# Executar
+false_position()

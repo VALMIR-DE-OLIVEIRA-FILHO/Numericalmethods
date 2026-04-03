@@ -1,0 +1,4 @@
+Passo k =  1, raiz x = -13.3332994242
+Passo k =  2, raiz x = -13.3333010368
+
+A raiz vale -13.3333010368 com 2 passos.
