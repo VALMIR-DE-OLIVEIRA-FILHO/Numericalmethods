@@ -3,12 +3,12 @@ import os
 
 # Função
 def f(x):
-    return 2**x -3*x - 40
+    return 36*x - math.exp(x-8)
 
 def false_position():
-    a = -14
-    b = -13
-    eps1 = 3e-6
+    a = 14
+    b = 15
+    eps1 = 1e-6
     eps2 = 1e-6
 
     caminho = os.path.join(os.path.dirname(__file__), "resultado.txt")
