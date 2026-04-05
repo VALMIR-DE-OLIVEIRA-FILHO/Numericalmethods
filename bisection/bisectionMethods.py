@@ -6,11 +6,12 @@ def f(x):
 def bissecao():
     a = -14
     b = -13
-    #tolerância erros
+    #error tolerance
     eps1 = 1e-4
     eps2 = 2e-4
 
-    # 📂 caminho do arquivo para salvar a resposta 
+
+    # 📂 file path to save the response
     caminho_arquivo = "bisection/resultado.txt"
 
     with open(caminho_arquivo, "w") as arquivo:
@@ -33,7 +34,7 @@ def bissecao():
 
             print(linha, end="")
             arquivo.write(linha)
-            #observar o critério de parada 
+            #observe the stopping criterion
             if abs(b - a) < eps2 or abs(f(x)) < eps1:
                 break
 
@@ -45,5 +46,5 @@ def bissecao():
         print(resultado)
         arquivo.write(resultado)
 
-# Executa
+# Execute
 bissecao()
