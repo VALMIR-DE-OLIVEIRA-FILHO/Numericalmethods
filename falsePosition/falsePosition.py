@@ -3,7 +3,7 @@ import os
 
 # Function
 def f(x):
-    return 36*x - math.exp(x-8)
+      return 36*x - math.exp(x-8)
 
 def false_position():
     a = 14
