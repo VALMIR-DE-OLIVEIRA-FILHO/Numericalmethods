@@ -2,7 +2,7 @@ import math
 
 # Função f(x)
 def f(x):
-    return math.sin(x/4.06) - ((x +6.39)**3 -2)
+   return (30/(x+8))**3 - (19 - x)
 
 # Derivada numérica (diferença central de ordem 4)
 def fld(x):
@@ -10,11 +10,11 @@ def fld(x):
     return (f(x - 2*h) - 8*f(x - h) + 8*f(x + h) - f(x + 2*h)) / (12*h)
 
 def newton():
-    a= -6
-    b= -5
+    a= 4
+    b= 5
     x0 = (a+ b)/2
-    eps1 = 1e-7
-    eps2 = 1e-7
+    eps1 = 1e-6
+    eps2 = 1e-6
 
     for k in range(1, 101):
         x1 = x0 - f(x0) / fld(x0)

@@ -10,7 +10,7 @@ def raiz5(x):
 # FUNÇÃO
 # =========================================
 def f(x):
-    return (2*x**3 - 89*x**2 + 6*x - 1054) / raiz5(2*x - 6)
+    return 100 / ( 1 + 99 * np.exp(-0.319 * x))
 
 # =========================================
 # DERIVADAS (5 PONTOS - IGUAL PROFESSOR)

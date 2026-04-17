@@ -57,10 +57,13 @@ def gauss_seidel(A, b, eps3=1e-5, max_iter=100):
 if __name__ == "__main__":
     # No forget change the system for the new order
     A = [
-    [4, -2],
-    [-5, 4],
+    #[x, y, z, w] importante a ordem
+    [20, 2, -3, 1],
+    [-4, 20, 1, -3],
+    [-2, 5, -20, 4],
+    [5, -1, -0.5, 20],
     
 ]
 
-    b = [10,-2]
+    b = [10, 20 , 33 , 40]
     resultado = gauss_seidel(A, b)

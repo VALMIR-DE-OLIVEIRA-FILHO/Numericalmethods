@@ -1,20 +1,9 @@
-Passo k =  1, raiz x =  14.1530288170
-Passo k =  2, raiz x =  14.2089767225
-Passo k =  3, raiz x =  14.2288310437
-Passo k =  4, raiz x =  14.2357993685
-Passo k =  5, raiz x =  14.2382354432
-Passo k =  6, raiz x =  14.2390858979
-Passo k =  7, raiz x =  14.2393826552
-Passo k =  8, raiz x =  14.2394861880
-Passo k =  9, raiz x =  14.2395223065
-Passo k = 10, raiz x =  14.2395349065
-Passo k = 11, raiz x =  14.2395393020
-Passo k = 12, raiz x =  14.2395408354
-Passo k = 13, raiz x =  14.2395413703
-Passo k = 14, raiz x =  14.2395415569
-Passo k = 15, raiz x =  14.2395416220
-Passo k = 16, raiz x =  14.2395416447
-Passo k = 17, raiz x =  14.2395416527
-Passo k = 18, raiz x =  14.2395416554
+Passo k =  1, raiz x =   2.1204545455
+Passo k =  2, raiz x =   2.1346681573
+Passo k =  3, raiz x =   2.1363151162
+Passo k =  4, raiz x =   2.1365055473
+Passo k =  5, raiz x =   2.1365275606
+Passo k =  6, raiz x =   2.1365301052
+Passo k =  7, raiz x =   2.1365303994
 
-A raiz vale  14.2395416554 com 18 passos.
+A raiz vale   2.1365303994 com 7 passos.

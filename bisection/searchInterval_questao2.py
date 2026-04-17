@@ -1,9 +1,8 @@
 import math
 
-def raiz5(x):
-    return abs(x)**(1/5) * (1 if x >= 0 else -1)
+
 def f(x):
-    return (2*x**3 - 84*x**2 +6*x -1048)/ raiz5(2*x - 6)
+    return (30/(x+8))**3 - (19 - x)
 
 def searchIntervals(inicio=-100, fim=100):
     intervalos = []

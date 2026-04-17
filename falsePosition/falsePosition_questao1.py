@@ -3,11 +3,11 @@ import os
 
 # Function
 def f(x):
-      return 36*x - math.exp(x-8)
+      return (3 * x**2 + 7*x)*(1/3) - 9.55  
 
 def false_position():
-    a = 14
-    b = 15
+    a = 2
+    b = 3
     eps1 = 1e-6
     eps2 = 1e-6
 

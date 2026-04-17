@@ -1,35 +1,51 @@
-import math
-
 # number of equations
-ne = 4
+ne = 5
 
 # augmented matrix [A|b]
 A = [
-    [57.0, -24.0, 12.0, -77.0 , 102.0],
-    [10.0, 33.0, 6.0, -54.0 , 47.0],
-    [-7.0, 0, 30.0, 12.0 , -119.0],
-    [97.0, -20.0, 91.0, -77.0 , 100.0],
-    
+    #[x, y, z, w, v] importante a ordem 
+    [1, -2, -2, -8, 2, -3],
+    [6, 2, -2, -1, 0, 0],
+    [-1, 2, 2, -1, 7, 0],
+    [2, -1, 7, 2, -1, 36],
+    [-1, -5, -2, 0, 1, 2]
 ]
 
 # =========================
-# Gauss-Jordan
+# Gauss-Jordan com pivotamento
 # =========================
 for k in range(ne):
-    # Normalize the line k (pivot = 1)
+
+    # 🔁 Pivotamento parcial
+    max_row = k
+    for i in range(k + 1, ne):
+        if abs(A[i][k]) > abs(A[max_row][k]):
+            max_row = i
+
+    # troca de linhas
+    A[k], A[max_row] = A[max_row], A[k]
+
+    # pivô
     piv = A[k][k]
+
+    # verificação de segurança
+    if abs(piv) < 1e-10:
+        raise ValueError("Sistema sem solução única ou mal condicionado")
+
+    # 🔧 normaliza linha do pivô
     for j in range(ne + 1):
         A[k][j] /= piv
 
-    # zeroes out the other lines.
+    # 🔧 zera outras linhas
     for i in range(ne):
         if i != k:
-            m = A[i][k]
+            fator = A[i][k]
             for j in range(ne + 1):
-                A[i][j] -= m * A[k][j]
+                A[i][j] -= fator * A[k][j]
 
 # =========================
-# Result 
+# Resultado
 # =========================
+print("\nSolução:")
 for i in range(ne):
-    print(f"x{i+1} = {A[i][ne]:.12f}")
+    print(f"x{i+1} = {A[i][ne]:.9f}")

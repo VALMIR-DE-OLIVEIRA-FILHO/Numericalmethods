@@ -5,14 +5,8 @@ import matplotlib.pyplot as plt
 # =========================================
 # 🔧 FUNÇÃO
 # =========================================
-def raiz5(x):
-    return np.sign(x) * (abs(x)**(1/5))
-
-# =========================================
-# FUNÇÃO
-# =========================================
 def f(x):
-    return (2*x**3 - 84*x**2 + 6*x - 1048) / raiz5(2*x - 6)
+    return  100 / ( 1 + 99 * math.exp(-0.319 * x))
 
 # =========================================
 # 🔧 DERIVADAS NUMÉRICAS (h FIXO)
@@ -29,7 +23,7 @@ def fll(x):
 # =========================================
 # 🔧 MÉTODO DA SECANTE
 # =========================================
-def secante(func, x0, x1, eps1=1e-5, eps2=1e-5, max_iter=100):
+def secante(func, x0, x1, eps1=1e-6, eps2=1e-6, max_iter=100):
     for _ in range(max_iter):
         f0 = func(x0)
         f1 = func(x1)
@@ -146,76 +140,30 @@ if inflexoes:
 else:
     print("Nenhum encontrado")
 
+
 # =========================================
-# 📊 GRÁFICO TOP (COM VALORES VISÍVEIS)
+# 📊 GRÁFICO
 # =========================================
-x_vals = np.linspace(-20, 20, 500)
-y_vals = [f(i) for i in x_vals]
+x = np.linspace(-20, 20, 500)
+y = [f(i) for i in x]
 
-plt.figure(figsize=(12, 7))
+plt.figure()
+plt.plot(x, y, label="f(x)")
 
-# Curva
-plt.plot(x_vals, y_vals, linewidth=2, label="f(x)")
-
-# Função auxiliar pra anotar bonito
-def anotar(x, y, texto):
-    plt.annotate(
-        texto,
-        (x, y),
-        textcoords="offset points",
-        xytext=(8, 8),
-        arrowprops=dict(arrowstyle="->"),
-        fontsize=9
-    )
-
-# =====================
-# RAÍZES
-# =====================
-# Junta todas as raízes
-rx = [r for r in raizes]
-ry = [f(r) for r in raizes]
-
-# Plota tudo de uma vez
-plt.scatter(rx, ry, s=80, color='red', label="Raízes")
-
-# Anota cada uma
 for r in raizes:
-    anotar(r, f(r), f"{r:.3f}")
-# =====================
-# CRÍTICOS
-# =====================
+    plt.scatter(r, f(r))
+    plt.text(r, f(r), f"{r:.2f}")
+
 for c in criticos:
-    y = f(c)
-    tipo = classificar_critico(c)
+    plt.scatter(c, f(c))
+    plt.text(c, f(c), f"{c:.2f}")
 
-    if tipo == "MÁXIMO":
-        plt.scatter(c, y, s=100, marker='^', label="Máximo")
-    elif tipo == "MÍNIMO":
-        plt.scatter(c, y, s=100, marker='v', label="Mínimo")
-
-    anotar(c, y, f"{c:.3f}")
-
-# =====================
-# INFLEXÃO
-# =====================
 for i in inflexoes:
-    y = f(i)
-    plt.scatter(i, y, s=100, marker='D', label="Inflexão")
-    anotar(i, y, f"{i:.3f}")
+    plt.scatter(i, f(i))
+    plt.text(i, f(i), f"{i:.2f}")
 
-# Eixos
-plt.axhline(0, linestyle='--')
-plt.axvline(0, linestyle='--')
-
-# Grid
-plt.grid(alpha=0.3)
-
-# Remove legenda duplicada
-handles, labels = plt.gca().get_legend_handles_labels()
-unique = dict(zip(labels, handles))
-plt.legend(unique.values(), unique.keys())
-
-plt.title("Análise completa da função", fontsize=14)
-plt.tight_layout()
-
+plt.axhline(0)
+plt.grid()
+plt.legend()
+plt.title("Análise completa automática")
 plt.show()

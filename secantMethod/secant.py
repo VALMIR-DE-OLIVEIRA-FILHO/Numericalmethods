@@ -2,14 +2,14 @@ import math
 
 # Função f(x)
 def f(x):
-    return 1-x * math.log(x)
+    return  18*x**4 - x* math.exp((x-2)/2)
     # return 3.453*x**7 - 2.0975*x**6 - 120.5323*x**5 - 1989.34*x**3 + 12003
 
 def metodo_secante():
-    x0 = 1
-    x1 = 2
-    eps1 = 4e-5
-    eps2 = 2e-5
+    x0 = 27
+    x1 = 28
+    eps1 = 1e-4
+    eps2 = 1e-4
 
     for k in range(1, 101):
         x2 = x1 - f(x1)*(x1 - x0)/(f(x1) - f(x0))
